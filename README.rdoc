@@ -2,6 +2,47 @@
 
 Really simple extension to add full text search functionality to ActiveModel-style classes
 
+Currently supports ActiveRecord and Mongoid.
+
+== Usage
+Load the library (add the gem to your Gemfile)
+and add one line to the classes you would like to search like this:
+
+  class Person < ActiveRecord::Base
+    acts_as_full_text_searchable
+  end
+  
+  class Page
+    include Mongoid::Document
+    acts_as_full_text_searchable
+  end
+  
+You can then query the classes like you would do with where():
+# Mongoid example
+Person.full_text_search("Pete")
+
+# equals 
+Person.where(:first_name => "Pete")
+OR
+Person.where(:last_name => "Pete")
+OR
+Person.where(:pet_name => "Pete")
+
+
+AND is also supported:
+Person.full_text_search("Pete", :method => :and)
+
+
+Finally, there is also a global search, that operates on all classes that act as full_text_searchable:
+
+FullTextSearch.global_search("Pete")
+
+
+== Limitations
+* full_text_search only operates on the attributes defined on the class itself, not on any relations.
+* global search only works on classes that have been loaded. If unsure, add them manually to FullTextSearch.classes
+
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
