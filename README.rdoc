@@ -18,7 +18,6 @@ and add one line to the classes you would like to search like this:
   end
   
 You can then query the classes like you would do with where():
-  # Mongoid example
   Person.full_text_search("Pete")
   
   # equals 
@@ -31,6 +30,11 @@ You can then query the classes like you would do with where():
 
 AND is also supported:
   Person.full_text_search("Pete", :method => :and)
+
+
+You can use anything that goes normally goes into where() conditions, for example:
+  # on Mongoid:
+  Person.full_text_search(/any regex/)
 
 
 Finally, there is also a global search, that operates on all classes that act as full_text_searchable:
