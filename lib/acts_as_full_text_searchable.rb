@@ -2,7 +2,6 @@ require 'full_text_search'
 
 module ActsAsFullTextSearchable
   def acts_as_full_text_searchable(options={})
-    puts "full text searchable: #{self}"
     FullTextSearch.classes << self
     send :extend, FullTextSearch::ClassMethods
   end
