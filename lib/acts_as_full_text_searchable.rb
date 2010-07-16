@@ -8,9 +8,16 @@ module ActsAsFullTextSearchable
   end
 end
 
-["ActiveRecord::Base", "Mongoid::Document"].each do |class_name|
-  begin
-    Kernel.const_get(class_name).send(:extend, ActsAsFullTextSearchable)
-  rescue
+# just extend Mongoid and Activerecord for now
+
+module Mongoid
+  module Finders
+    include ActsAsFullTextSearchable
+  end
+end
+  
+module ActiveRecord    
+  class Base
+    extend ActsAsFullTextSearchable
   end
 end
