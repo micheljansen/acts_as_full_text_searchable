@@ -1,6 +1,6 @@
 = acts_as_full_text_searchable
 
-Description goes here.
+Really simple extension to add full text search functionality to ActiveModel-style classes
 
 == Note on Patches/Pull Requests
  
@@ -14,4 +14,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 micheljansen. See LICENSE for details.
+Copyright (c) 2010 Michel Jansen. See LICENSE for details.

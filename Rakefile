@@ -5,11 +5,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "acts_as_full_text_searchable"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "add full text search to ActiveModel classes"
+    gem.description = "add full text search to ActiveModel classes (ActiveRecord, Mongoid etc.)"
     gem.email = "mail@micheljansen.org"
     gem.homepage = "http://github.com/micheljansen/acts_as_full_text_searchable"
-    gem.authors = ["micheljansen"]
+    gem.authors = ["Michel Jansen"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
