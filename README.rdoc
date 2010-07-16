@@ -18,24 +18,24 @@ and add one line to the classes you would like to search like this:
   end
   
 You can then query the classes like you would do with where():
-# Mongoid example
-Person.full_text_search("Pete")
-
-# equals 
-Person.where(:first_name => "Pete")
-OR
-Person.where(:last_name => "Pete")
-OR
-Person.where(:pet_name => "Pete")
+  # Mongoid example
+  Person.full_text_search("Pete")
+  
+  # equals 
+  Person.where(:first_name => "Pete")
+  OR
+  Person.where(:last_name => "Pete")
+  OR
+  Person.where(:pet_name => "Pete")
 
 
 AND is also supported:
-Person.full_text_search("Pete", :method => :and)
+  Person.full_text_search("Pete", :method => :and)
 
 
 Finally, there is also a global search, that operates on all classes that act as full_text_searchable:
 
-FullTextSearch.global_search("Pete")
+  FullTextSearch.global_search("Pete")
 
 
 == Limitations
