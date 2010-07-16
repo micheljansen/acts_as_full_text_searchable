@@ -41,13 +41,14 @@ module FullTextSearch
         counted_results = Hash.new(0)
         
         keys.each do |key|
-          results = self.all.where(query).to_a
-          results.each do |key|
+          query = {key => condition}
+          
+          self.all.where(query).each do |key|
             counted_results[key] = counted_results[key]+1
           end
         end
         
-        counted_results.sort {|a,b| a[1]<=>b[1]}.map{|pair| pair.first}
+        results = counted_results.sort {|a,b| a[1]<=>b[1]}.map{|pair| pair.first}
       end
       
       results
